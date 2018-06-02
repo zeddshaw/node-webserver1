@@ -1,7 +1,9 @@
 const express = require('express')
 const hbs = require('hbs')  //using handlebars templating system
 
-app = express()  
+app = express()
+
+port = process.env.PORT || 3000;
 
 app.get('/',(req,res) => {
     res.send('<h1 align="center">Hello I am Express!</h1>')
@@ -33,4 +35,6 @@ app.get('/contact',(req,res) => {
 //Using Partials
 hbs.registerPartials(__dirname + '/views/partials');
 
-app.listen(3000)
+app.listen(port,()=>{
+    console.log(`Running on port ${port}`);
+})
